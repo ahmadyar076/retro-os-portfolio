@@ -6,9 +6,11 @@ import Window from './Window.jsx'
 import DesktopIcon from './DesktopIcon.jsx'
 import RetroFolderIcon from './RetroFolderIcon.jsx'
 import TerminalIcon from './TerminalIcon.jsx'
+import SnakeIcon from './SnakeIcon.jsx'
 import ProjectViewer from './ProjectViewer.jsx'
 import SystemProperties from '../apps/SystemProperties.jsx'
 import Terminal from '../apps/Terminal.jsx'
+import SnakeGame from './SnakeGame.jsx'
 import { projectsData } from '../data/projects.js'
 
 /** Per-project accent color for the folder's label bar. */
@@ -54,6 +56,16 @@ export default function Desktop() {
       bare: true,
     })
 
+  const openSnake = () =>
+    openWindow({
+      id: 'snake',
+      title: 'Snake.exe',
+      component: <SnakeGame />,
+      width: 460,
+      height: 560,
+      bare: true,
+    })
+
   // Auto-open System Properties once on load (idempotent by id).
   useEffect(() => {
     openWindow({
@@ -77,6 +89,12 @@ export default function Desktop() {
       label: 'MS-DOS Prompt',
       icon: <TerminalIcon size={36} />,
       open: openTerminal,
+    },
+    {
+      id: 'snake',
+      label: 'Snake.exe',
+      icon: <SnakeIcon size={36} />,
+      open: openSnake,
     },
     ...projectsData.map((project) => ({
       id: project.id,

@@ -2,6 +2,7 @@ import useWindowStore from '../store/windowStore.js'
 import AboutMe from '../apps/AboutMe.jsx'
 import SystemProperties from '../apps/SystemProperties.jsx'
 import Terminal from '../apps/Terminal.jsx'
+import SnakeGame from './SnakeGame.jsx'
 
 /**
  * StartMenu — Windows 95/98 style menu panel above the Start button.
@@ -48,6 +49,18 @@ export default function StartMenu({ open, onClose }) {
           component: <SystemProperties />,
           width: 380,
           height: 320,
+        }),
+    },
+    {
+      label: 'Snake.exe',
+      action: () =>
+        openWindow({
+          id: 'snake',
+          title: 'Snake.exe',
+          component: <SnakeGame />,
+          width: 460,
+          height: 560,
+          bare: true,
         }),
     },
     { label: 'Shut Down…' }, // stub

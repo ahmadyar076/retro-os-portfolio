@@ -8,7 +8,7 @@
  */
 export default function AboutMe() {
   return (
-    <div className="h-full min-h-full bg-black p-3 font-mono text-[15px] leading-relaxed text-green-500 selection:bg-green-500 selection:text-black">
+    <div className="h-full overflow-auto bg-black p-3 font-mono text-[15px] leading-relaxed text-green-500 selection:bg-green-500 selection:text-black">
       {/* Boot banner */}
       <p className="text-green-600">
         Microsoft(R) Windows 98 [Version 4.10.1998]

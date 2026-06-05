@@ -69,10 +69,11 @@ export default function Terminal() {
   return (
     <div
       onMouseDown={() => inputRef.current?.focus()}
-      className="flex h-full min-h-full flex-col bg-black p-3 font-mono text-[15px] leading-snug text-green-500 selection:bg-green-500 selection:text-black"
+      className="flex h-full flex-col bg-black p-3 font-mono text-[15px] leading-snug text-green-500 selection:bg-green-500 selection:text-black"
     >
-      {/* Scrolling output */}
-      <div className="flex-1">
+      {/* Scrolling output (scrolls INSIDE the black screen; min-h-0 lets the
+          flex child shrink so overflow works instead of pushing the box taller). */}
+      <div className="min-h-0 flex-1 overflow-auto">
         {history.map((line, i) => (
           <p
             key={i}
